@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<HBox spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.kooralik.miniprojetjavafx.controller.DossierController">
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <VBox spacing="15.0" prefWidth="300.0" style="-fx-background-color: #f4f4f4; -fx-padding: 15; -fx-background-radius: 5;">
+        <Label text="Dossiers Administratifs" textFill="#2c3e50">
+            <font><Font name="System Bold" size="18.0" /></font>
+        </Label>
+
+        <Separator prefWidth="200.0" />
+
+        <VBox spacing="5.0">
+            <Label text="Numéro d'inscription :" />
+            <TextField fx:id="txtNumero" promptText="ex: INS-2024-XY" />
+        </VBox>
+
+        <VBox spacing="5.0">
+            <Label text="Date de création :" />
+            <DatePicker fx:id="dateCreationPicker" prefWidth="300.0" promptText="Choisir une date" />
+        </VBox>
+
+        <VBox spacing="5.0">
+            <Label text="Étudiant concerné :" />
+            <ComboBox fx:id="comboEtudiant" prefWidth="300.0" promptText="Rechercher un étudiant..." />
+        </VBox>
+
+        <Separator prefWidth="200.0" />
+
+        <HBox spacing="10.0" alignment="CENTER">
+            <Button onAction="#onAjouter" text="Créer" style="-fx-background-color: #27ae60;" textFill="WHITE" prefWidth="80.0"/>
+            <Button onAction="#onModifier" text="Modifier" style="-fx-background-color: #2980b9;" textFill="WHITE" prefWidth="80.0"/>
+            <Button onAction="#onSupprimer" text="Suppr." style="-fx-background-color: #c0392b;" textFill="WHITE" prefWidth="80.0"/>
+        </HBox>
+    </VBox>
+
+    <TableView fx:id="tableDossiers" HBox.hgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colNumero" text="N° Inscription" prefWidth="150.0" />
+            <TableColumn fx:id="colDate" text="Date Création" prefWidth="150.0" />
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+        </columnResizePolicy>
+    </TableView>
+
+</HBox>

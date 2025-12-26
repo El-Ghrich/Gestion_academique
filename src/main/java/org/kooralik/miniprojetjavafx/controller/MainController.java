@@ -25,14 +25,11 @@ public class MainController {
     }
 
     @FXML
-    private void showCoursView() {
-
-        System.out.println("Vue Cours à venir...");
-    }
+    private void showCoursView() {loadView("cours-view.fxml");}
 
     @FXML
     private void showDossierView() {
-        System.out.println("Vue Dossiers à venir...");
+        loadView("dossier-view.fxml");
     }
 
     private void loadView(String fxmlFileName) {

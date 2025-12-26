@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<HBox spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.kooralik.miniprojetjavafx.controller.EtudiantController">
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <VBox spacing="10.0" prefWidth="300.0" style="-fx-background-color: #f4f4f4; -fx-padding: 15; -fx-background-radius: 5;">
+        <Label text="Gestion des Étudiants" textFill="#2c3e50">
+            <font><Font name="System Bold" size="18.0" /></font>
+        </Label>
+
+        <Separator prefWidth="200.0" />
+
+        <Label text="Informations Personnelles" textFill="#7f8c8d">
+            <font><Font size="12.0" /></font>
+        </Label>
+
+        <TextField fx:id="txtMatricule" promptText="Matricule (ex: E-2024-001)" />
+        <TextField fx:id="txtNom" promptText="Nom" />
+        <TextField fx:id="txtPrenom" promptText="Prénom" />
+        <TextField fx:id="txtEmail" promptText="Email (ex: etudiant@ecole.com)" />
+
+        <Separator prefWidth="200.0" />
+
+        <Label text="Cursus" textFill="#7f8c8d">
+            <font><Font size="12.0" /></font>
+        </Label>
+
+        <ComboBox fx:id="comboFiliere" prefWidth="300.0" promptText="Sélectionner la Filière" />
+        <ComboBox fx:id="comboStatus" prefWidth="300.0" promptText="Statut (Actif/Suspendu...)" />
+
+        <HBox spacing="10.0" alignment="CENTER">
+            <Button onAction="#onAjouter" text="Ajouter" style="-fx-background-color: #27ae60;" textFill="WHITE" prefWidth="80.0"/>
+            <Button onAction="#onModifier" text="Modifier" style="-fx-background-color: #2980b9;" textFill="WHITE" prefWidth="80.0"/>
+            <Button onAction="#onSupprimer" text="Suppr." style="-fx-background-color: #c0392b;" textFill="WHITE" prefWidth="80.0"/>
+        </HBox>
+    </VBox>
+
+    <TableView fx:id="tableEtudiants" HBox.hgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colMatricule" text="Matricule" prefWidth="90.0" />
+            <TableColumn fx:id="colNom" text="Nom" prefWidth="100.0" />
+            <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="100.0" />
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="150.0" />
+            <TableColumn fx:id="colStatus" text="Statut" prefWidth="90.0" />
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+        </columnResizePolicy>
+    </TableView>
+
+</HBox>

@@ -41,6 +41,49 @@ public class FiliereController {
             }
         });
     }
+    @FXML
+    private void onModifier() {
+        // 1. Récupérer la ligne sélectionnée
+        Filiere selection = tableFilieres.getSelectionModel().getSelectedItem();
+
+        // 2. Vérifier si l'utilisateur a bien cliqué sur une ligne
+        if (selection == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur de sélection");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez sélectionner une filière dans le tableau pour la modifier.");
+            alert.showAndWait();
+            return;
+        }
+
+        try {
+            // 3. Mettre à jour l'objet avec les données des champs
+            // IMPORTANT : On ne touche PAS à l'ID (selection.getId())
+            selection.setCode(txtCode.getText());
+            selection.setNom(txtNom.getText());
+            selection.setDescription(txtDescription.getText());
+
+            // 4. Appeler le DAO pour faire le UPDATE en base de données
+            dao.update(selection);
+
+            // 5. Rafraîchir l'affichage
+            refreshTable();
+            clearFields(); // Vide les champs après la modif
+
+        } catch (RuntimeException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText("Impossible de modifier la filière");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+    }
+
+    private void clearFields() {
+        txtCode.setText("");
+        txtNom.setText("");
+        txtDescription.setText("");
+    }
 
     private void refreshTable() {
         data.clear();
