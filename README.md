@@ -19,4 +19,4 @@ Difficultés Rencontrées
 2. L'utilisation de ComboBox est un peu difficile, Il ne faut pas oublier la methode ToString sinon l'affichage ne sera pas comme prevue.
 3. Le Grand Problem c'est celui de la planification, Il faut savoir commencer par quoi et avoir une vision global, pour être capable de faire certain decisions au niveaux bas, et plannifier la totalite du projet avant de commencer blindly le codage.
 
-Je m'éxcuse, J'ai pas pu finir le projet en sa totalité.  
+Le projet est complet maintenant.
